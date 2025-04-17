@@ -1,9 +1,20 @@
 import express from "express";
-import tarefaRoutes from "./routes/tarefaRoutes.js";
+import { config } from "dotenv";
+import cors from "cors";
+
+import collectionRouter from "./routes/collectionRoutes.js";
+
+
+config();
+const port = process.env.PORT || 4001;
+
 const app = express();
-const port = 3000;
+app.use(cors());
+
 app.use(express.json());
-app.use("/tarefas", tarefaRoutes);
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
+
+app.use("/colecoes", collectionRouter);
+
+app.get("/", (req, res) => {
+  res.json({ message: "API de Coleção de animes funcionando!"});
 });
