@@ -18,3 +18,7 @@ app.use("/colecoes", collectionRouter);
 app.get("/", (req, res) => {
   res.json({ message: "API de Coleção de animes funcionando!"});
 });
+
+app.listen(port, () => {
+  console.log(`Server rodando na porta ${port}`);
+});

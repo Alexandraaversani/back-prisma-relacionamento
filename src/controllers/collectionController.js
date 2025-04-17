@@ -31,7 +31,7 @@ class CollectionController {
   }
 
   // POST /colecoes
-  async createPersonagem(req, res) {
+  async createCollection(req, res) {
     try {
       // Validação básica
       const { name, description, releaseYear } = req.body;
@@ -44,7 +44,7 @@ class CollectionController {
       }
 
       // Criar a nova coleção
-      const newPersonagem = await CollectionModel.create(
+      const newCollection = await CollectionModel.create(
         name,
         description,
         releaseYear
